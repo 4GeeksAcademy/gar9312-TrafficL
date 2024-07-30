@@ -6,11 +6,11 @@ const TrafficLight = () => {
   useEffect(() => {
     const cycleLights = () => {
       if (activeLight === 'red') {
-        setTimeout(() => setActiveLight('yellow'), 3000); // rojo durante 3 segundos
+        setTimeout(() => setActiveLight('yellow'), 3000); 
       } else if (activeLight === 'yellow') {
-        setTimeout(() => setActiveLight('green'), 1500); // amarillo durante 1 segundo
+        setTimeout(() => setActiveLight('green'), 1500);
       } else if (activeLight === 'green') {
-        setTimeout(() => setActiveLight('red'), 3000); // verde durante 4 segundos
+        setTimeout(() => setActiveLight('red'), 3000); 
       }
     };
 
