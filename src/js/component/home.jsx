@@ -1,26 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+const TrafficLight = () => {
+  const [activeLight, setActiveLight] = useState('red');
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  useEffect(() => {
+    const cycleLights = () => {
+      if (activeLight === 'red') {
+        setTimeout(() => setActiveLight('yellow'), 3000); // rojo durante 3 segundos
+      } else if (activeLight === 'yellow') {
+        setTimeout(() => setActiveLight('green'), 1500); // amarillo durante 1 segundo
+      } else if (activeLight === 'green') {
+        setTimeout(() => setActiveLight('red'), 3000); // verde durante 4 segundos
+      }
+    };
+
+    cycleLights();
+  }, [activeLight]);
+
+  return (
+    <div className="traffic-light">
+      <div className={`light red ${activeLight === 'red' ? 'active' : ''}`}></div>
+      <div className={`light yellow ${activeLight === 'yellow' ? 'active' : ''}`}></div>
+      <div className={`light green ${activeLight === 'green' ? 'active' : ''}`}></div>
+    </div>
+  );
 };
 
-export default Home;
+export default TrafficLight;
