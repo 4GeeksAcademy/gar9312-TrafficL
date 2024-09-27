@@ -8,36 +8,38 @@ body {
 }
 
 .traffic-light {
+  width: 120px; 
+  background-color: black; 
+  border-radius: 10px; 
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100px;
-  background-color: black;
-  padding: 10px;
-  border-radius: 10px;
+  justify-content: space-around; 
 }
 
 .light {
-  width: 50px;
-  height: 50px;
-  margin: 10px 0;
-  border-radius: 50%;
-  opacity: 0; 
-  background-color: gray;
-  transition: opacity 0.5s ease; 
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; 
+  opacity: 0.3; 
+  transition: opacity 0.3s; 
+  margin: 1mm 0; 
 }
 
-.light.red.active {
+.red {
   background-color: red;
+}
+
+.yellow {
+  background-color: yellow; 
+}
+
+.green {
+  background-color: green; 
+}
+
+.active {
   opacity: 1; 
 }
 
-.light.yellow.active {
-  background-color: yellow;
-  opacity: 1; 
-}
-
-.light.green.active {
-  background-color: green;
-  opacity: 1; 
-}

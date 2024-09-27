@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const TrafficLight = () => {
   const [activeLight, setActiveLight] = useState('red');
 
-  useEffect(() => {
-    const cycleLights = () => {
-      if (activeLight === 'red') {
-        setTimeout(() => setActiveLight('yellow'), 3000); 
-      } else if (activeLight === 'yellow') {
-        setTimeout(() => setActiveLight('green'), 1500);
-      } else if (activeLight === 'green') {
-        setTimeout(() => setActiveLight('red'), 3000); 
-      }
-    };
-
-    cycleLights();
-  }, [activeLight]);
+  const handleLightClick = (color) => {
+    setActiveLight(color);
+  };
 
   return (
     <div className="traffic-light">
-      <div className={`light red ${activeLight === 'red' ? 'active' : ''}`}></div>
-      <div className={`light yellow ${activeLight === 'yellow' ? 'active' : ''}`}></div>
-      <div className={`light green ${activeLight === 'green' ? 'active' : ''}`}></div>
+      <div 
+        className={`light red ${activeLight === 'red' ? 'active' : ''}`} 
+        onClick={() => handleLightClick('red')}
+      ></div>
+      <div 
+        className={`light yellow ${activeLight === 'yellow' ? 'active' : ''}`} 
+        onClick={() => handleLightClick('yellow')}
+      ></div>
+      <div 
+        className={`light green ${activeLight === 'green' ? 'active' : ''}`} 
+        onClick={() => handleLightClick('green')}
+      ></div>
     </div>
   );
 };
